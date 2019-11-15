@@ -12,7 +12,7 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseURL = "https://journey-z.github.io/journey.github.io/"
+baseURL = "https://journey-z.github.io/journey.github.io"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"
 title = "Journey's Blog"
@@ -174,20 +174,20 @@ canonifyurls = true
   # Comment and uncomment to enable or disable sharing options
   # If you wanna add a sharing option, read user documentation :
   # Tranquilpeak configuration > Theme configuration > sharing-options
-  [[params.sharingOptions]]
-    name = "Facebook"
-    icon = "fa-facebook-official"
-    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
-
-  [[params.sharingOptions]]
-    name = "Twitter"
-    icon = "fa-twitter"
-    url = "https://twitter.com/intent/tweet?text=%s"
-
-  [[params.sharingOptions]]
-    name = "Google+"
-    icon = "fa-google-plus"
-    url = "https://plus.google.com/share?url=%s"
+#  [[params.sharingOptions]]
+#    name = "Facebook"
+#    icon = "fa-facebook-official"
+#    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+#
+#  [[params.sharingOptions]]
+#    name = "Twitter"
+#    icon = "fa-twitter"
+#    url = "https://twitter.com/intent/tweet?text=%s"
+#
+#  [[params.sharingOptions]]
+#    name = "Google+"
+#    icon = "fa-google-plus"
+#    url = "https://plus.google.com/share?url=%s"
 
   [params.header.rightLink]
     class = ""
