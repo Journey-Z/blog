@@ -106,7 +106,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "么得感情的编程机器"
 
   # Customization
   # 定义 header 和 sidebar
