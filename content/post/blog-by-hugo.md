@@ -142,7 +142,7 @@ git push -u origin master
     回到 blog 项目，在终端中执行以下命令：
 
     ```
-    hugo --baseUrl=“https://journey-z.github.io/journey.github.io/”
+    hugo --baseUrl=https://journey-z.github.io/
     ```
 
     此时会在 blog 根目录下生成一个 public 目录，里面所有的文件，都是该 blog 项目的静态文件，将 public 目录下的所有文件，复制到 journey.github.io 项目中
@@ -153,7 +153,7 @@ git push -u origin master
     git push
     ```
 
-    将所有文件 push 到 GitHub 上，此时访问 https://journey-z.github.io/journey.github.io ,就会出现的博客内容了。
+    将所有文件 push 到 GitHub 上，此时访问 https://journey-z.github.io/ ,就会出现的博客内容了。
 
 
 以上是记录一下简单使用 Hugo 搭建个人博客的一些心得记录，更骚的操作的话，本人就没有研究得很深了，需要研究的话，还是得花不少时间和精力去通读下 Hugo 的官方文档的。
