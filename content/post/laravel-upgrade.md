@@ -3,7 +3,7 @@ title: "Laravel 版本升级"
 date: 2020-03-16T14:56:17+08:00
 categories:
 - Laravel
-- subcategory
+- php
 tags:
 - Laravel
 - php
@@ -11,7 +11,7 @@ keywords:
 - Laravel
 - php
 thumbnailImagePosition: left
-thumbnailImage: img/gopher10th-small.jpg
+thumbnailImage: img/laravel.png
 
 ---
 Laravel 版本由5.2升级到6.x...
