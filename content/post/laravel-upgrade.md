@@ -13,6 +13,7 @@ keywords:
 thumbnailImagePosition: left
 thumbnailImage: img/gopher10th-small.jpg
 
+---
 Laravel 版本由5.2升级到6.x...
 <!--more-->
 
