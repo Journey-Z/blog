@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Journey">
+<meta name="keywords" content="Laravel, php">
+<meta name="description" content="Laravel 版本由5.2升级到6.x&hellip;">
+
+
+<meta property="og:description" content="Laravel 版本由5.2升级到6.x&hellip;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 版本升级">
+<meta name="twitter:title" content="Laravel 版本升级">
+<meta property="og:url" content="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/">
+<meta property="twitter:url" content="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/">
+<meta property="og:site_name" content="Journey&#39;s Blog">
+<meta property="og:description" content="Laravel 版本由5.2升级到6.x&hellip;">
+<meta name="twitter:description" content="Laravel 版本由5.2升级到6.x&hellip;">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2020-03-16T14:56:17">
+  
+  
+    <meta property="article:modified_time" content="2020-03-16T14:56:17">
+  
+  
+  
+    
+      <meta property="article:section" content="Laravel">
+    
+      <meta property="article:section" content="php">
+    
+  
+  
+    
+      <meta property="article:tag" content="Laravel">
+    
+      <meta property="article:tag" content="php">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://journey-z.github.io/img/laravel.png">
+  <meta property="twitter:image" content="https://journey-z.github.io/img/laravel.png">
+
+
+
+
+
+  <meta property="og:image" content="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg">
+  <meta property="twitter:image" content="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg">
+
+
+    <title>Laravel 版本升级</title>
+
+    <link rel="icon" href="img/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://journey-z.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://journey-z.github.io/">Journey&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://journey-z.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://journey-z.github.io/#about">
+          <img class="sidebar-profile-picture" src="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Journey</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://journey-z.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://journey-z.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://journey-z.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://journey-z.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://journey-z.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Journey-Z" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Laravel 版本升级
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-03-16T14:56:17&#43;08:00">
+        
+  三月 16, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://journey-z.github.io/categories/laravel">Laravel</a>, 
+    
+      <a class="category-link" href="https://journey-z.github.io/categories/php">php</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Laravel 版本由5.2升级到6.x&hellip;</p>
+
+<h1 id="laravel-版本升级">Laravel 版本升级</h1>
+
+<p>因为项目很久之前就开始使用了 laravel 来搭建，当时搭建之时刚好最新版本为 laravel 5.2,就直接一直沿用至今，也没有进行过 laravel 框架上的版本迭代，最近回看整个项目架构，发现很多开发扩展包已经慢慢不再去兼容淘汰掉或者太陈旧的版本，感觉如果一直因为一直规避风险而放弃去使用这些能极大提高效率的玩意，另外万一官方宣布停止了老版本的框架维护和安全的 fix，怕以后会掉进更新大黑洞里，其实后果和风险会更大，另外新的版本框架做了更多的优化和提升，我觉得也应该大胆去拥抱它，不要固守陈旧</p>
+
+<h1 id="不破不立">不破不立</h1>
+
+<p>有些事情，不走出自己的舒适区的话，是很难找到自身的缺点和瓶颈的，趁着这次机会，顺便更多的熟悉一下 laravel 的源码和梳理下原有项目的架构，所以要么就不搞，要么就搞个大事情，决定把 laravel 框架从 5.2 升级到 6.0</p>
+
+<h1 id="说在升级之前">说在升级之前</h1>
+
+<p>在升级之前先看一下 laravel 的发布路线图</p>
+
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>发布时间</th>
+<th>Bug 维护周期</th>
+<th>安全性维护周期</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>5.0</td>
+<td>2015.02.04</td>
+<td>2015.08.04</td>
+<td>2016.02.04</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.1">5.1(LTS)</a></td>
+<td>2015.06.09</td>
+<td>2017.06.09</td>
+<td>2018.06.09</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.2">5.2</a></td>
+<td>2015.12.21</td>
+<td>2016.06.21</td>
+<td>2016.12.21</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.3">5.3</a></td>
+<td>2016.08.23</td>
+<td>2017.02.23</td>
+<td>2017.08.23</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.4">5.4</a></td>
+<td>2017.01.24</td>
+<td>2017.07.24</td>
+<td>2018.01.24</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.5">5.5(LTS)</a></td>
+<td>2017.08.30</td>
+<td>2019.08.30</td>
+<td>2020.08.30</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.6">5.6</a></td>
+<td>2018.02.07</td>
+<td>2018.08.07</td>
+<td>2019.02.07</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.7">5.7</a></td>
+<td>2018.09.04</td>
+<td>2019.02.04</td>
+<td>2019.09.04</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/5.8">5.8</a></td>
+<td>2019.02.26</td>
+<td>2019.08.26</td>
+<td>2020.02.26</td>
+</tr>
+
+<tr>
+<td><a href="https://learnku.com/docs/laravel/6.x">6.0(LTS)</a></td>
+<td>2019.09.03</td>
+<td>2021.09.03</td>
+<td>2022.09.03</td>
+</tr>
+</tbody>
+</table>
+
+<p>从发布线路图中是可以看到是有一些小区别的，其中 5.1 和 5.5 还有 6.0 是属于 LTS 的版本</p>
+
+<h1 id="什么是-lts">什么是 LTS</h1>
+
+<p>长期支持 （英语：Long-term support，缩写：LTS）是一种软件的产品生命周期政策，特别是开源软件，它增加了软件开发过程及软件版本周期的可靠度。长期支持延长了软件维护的周期；它也改变了软件更新（补丁）的类型及频率以降低风险、费用及软件部署的中断时间，同时提升了软件的可靠性。但这并不必然包含技术支持。</p>
+
+<p>在长期支持周期的开始，软件设计师会将软件特性冻结：他们制作补丁来修复程序错误及计算机安全隐患，但不会加入新的，可能会造成软件回归的功能。软件维护者可能会单独发布补丁，或是将其置于维护版本、小数点版本或是服务包中发布。支持周期结束后，其称之为产品的生命周期结束。</p>
+
+<p>“长期支持”这个术语通常是保留给特殊的软件版本，其他版本会有更短的生命周期。通常来说，长期支持版本至少会被维护两年。</p>
+
+<p>Laravel LTS 版本如上表格所示，支持两年的 bug 修复和三年的安全更新支持，而一般的发行版只提供了六个月的 bug 修复支持和一年的安全修复支持，所以本次升级选择最终升级到最新的 laravel LTS 版本 6.0</p>
+
+<h1 id="开始升级">开始升级</h1>
+
+<p>因为官网的升级步骤都一个版本一个升级，这里是直接升级从 5.2 到  6.0 LTS 作为一个跨度，将每个版本的逐级升级总结出来</p>
+
+<ul>
+<li><p>打开 composer.json 文件，laravel 版本从 5.2.* 修改成 ^6.0, 另外还应该将 fideloper/proxy 依赖关系更新至 ~4.0</p></li>
+
+<li><p>在 require-dev 部分下修改 symfony/css-selector 和 symfony/dom-crawler 到 ~4.0，修改 phpunit/phpunit 到 ~7.0，添加 &ldquo;filp/whoops&rdquo;:&rdquo;~2.0&rdquo;，修改 fzaninotto/faker 到 ~1.4，修改 barryvdh/laravel-ide-helper 到 ^2.6.6，修改 barryvdh/laravel-debugbar 到 ^3.2.8，具体如下：</p>
+
+<pre><code>&quot;require-dev&quot;: {
+&quot;fzaninotto/faker&quot;: &quot;~1.4&quot;,
+&quot;mockery/mockery&quot;: &quot;0.9.*&quot;,
+&quot;phpunit/phpunit&quot;: &quot;~7.0&quot;,
+&quot;barryvdh/laravel-ide-helper&quot;: &quot;^2.6.6&quot;,
+&quot;barryvdh/laravel-debugbar&quot;: &quot;^3.2.8&quot;,
+&quot;symfony/css-selector&quot;: &quot;~4.0&quot;,
+&quot;symfony/dom-crawler&quot;: &quot;~4.0&quot;,
+&quot;filp/whoops&quot;: &quot;~2.0&quot;
+}
+</code></pre></li>
+
+<li><p>在 scripts 部分添加一个额外的 package</p>
+
+<pre><code>&quot;scripts&quot;: {
+……
+&quot;post-autoload-dump&quot;: [
+  &quot;Illuminate\\Foundation\\ComposerScripts::postAutoloadDump&quot;,
+  &quot;@php artisan package:discover&quot;
+]
+}
+</code></pre></li>
+
+<li><p>执行 composer update -vvv &ndash;no-scripts</p></li>
+
+<li><p>打开 App\Provider\EventServiceProvider.php 文件，将
+以下内容</p>
+
+<pre><code>use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+public function boot(DispatcherContract $events)
+{
+parent::boot($events);
+//
+}
+</code></pre></li>
+</ul>
+
+<p>修改成</p>
+
+<pre><code>use Illuminate\Support\Facades\Event;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+public function boot()
+{
+    parent::boot();
+    //
+}
+</code></pre>
+
+<ul>
+<li><p>打开 App\Provider\RouteServiceProvider.php 文件，将以下内容</p>
+
+<pre><code>public function boot(Router $router)
+{
+//
+parent::boot($router);
+}
+</code></pre></li>
+</ul>
+
+<p>修改成</p>
+
+<pre><code>public function boot()
+{
+  parent::boot();
+    //
+}
+</code></pre>
+
+<ul>
+<li>打开 App\Http\Controllers\Controller.php 文件，删除 AuthorizesResources 的引入</li>
+</ul>
+
+<p>到目前为止，laravel 升级到 6.x 的工作已经完成</p>
+
+<h1 id="框架升级过程中可能会踩到的坑">框架升级过程中可能会踩到的坑</h1>
+
+<h2 id="日志调整">日志调整：</h2>
+
+<ul>
+<li><p>新的配置文件，所有的日志配置现在都存放在它自己的 config / logging.php 配置文件中，你应该在你自己的应用程序中放置一个默认配置文件的副本，并根据你的应用程序的需要进行调整修改，log 和 log_level 配置选项可以在 config / app.php 配置文件中删除，在 config 目录下添加 logging.php 文件</p>
+
+<pre><code>&lt;?php
+
+use Monolog\Handler\StreamHandler;
+
+return [
+/*
+|--------------------------------------------------------------------------
+| Default Log Channel
+|--------------------------------------------------------------------------
+|
+| This option defines the default log channel that gets used when writing
+| messages to the logs. The name specified in this option should match
+| one of the channels defined in the &quot;channels&quot; configuration array.
+|
+*/
+'default' =&gt; env('LOG_CHANNEL', 'stack'),
+/*
+|--------------------------------------------------------------------------
+| Log Channels
+|--------------------------------------------------------------------------
+|
+| Here you may configure the log channels for your application. Out of
+| the box, Laravel uses the Monolog PHP logging library. This gives
+| you a variety of powerful log handlers / formatters to utilize.
+|
+| Available Drivers: &quot;single&quot;, &quot;daily&quot;, &quot;slack&quot;, &quot;syslog&quot;,
+|                    &quot;errorlog&quot;, &quot;monolog&quot;,
+|                    &quot;custom&quot;, &quot;stack&quot;
+|
+*/
+'channels' =&gt; [
+    'stack' =&gt; [
+        'driver' =&gt; 'stack',
+        'channels' =&gt; ['daily'],
+    ],
+    'single' =&gt; [
+        'driver' =&gt; 'single',
+        'path' =&gt; env('LOG_PATH', storage_path('logs/laravel.log')),
+        'level' =&gt; 'debug',
+    ],
+    'daily' =&gt; [
+        'driver' =&gt; 'daily',
+        'path' =&gt; env('LOG_PATH', storage_path('logs/laravel.log')),
+        'level' =&gt; 'debug',
+        'days' =&gt; 7,
+    ],
+    'slack' =&gt; [
+        'driver' =&gt; 'slack',
+        'url' =&gt; env('LOG_SLACK_WEBHOOK_URL'),
+        'username' =&gt; 'Laravel Log',
+        'emoji' =&gt; ':boom:',
+        'level' =&gt; 'critical',
+    ],
+    'stderr' =&gt; [
+        'driver' =&gt; 'monolog',
+        'handler' =&gt; StreamHandler::class,
+        'with' =&gt; [
+            'stream' =&gt; 'php://stderr',
+        ],
+    ],
+    'syslog' =&gt; [
+        'driver' =&gt; 'syslog',
+        'level' =&gt; 'debug',
+    ],
+    'errorlog' =&gt; [
+        'driver' =&gt; 'errorlog',
+        'level' =&gt; 'debug',
+    ],
+],
+];
+</code></pre></li>
+
+<li><p>Illuminate\Log\Writer 类已经被重命名为 Illuminate\Log\Logger 。 如果你明确地将此类作为你的应用中的类之一的依赖项，你应该将类引用更新为新名称。 或者， 二者选一地，你应该强烈考虑用标准化的 Psr\Log\LoggerInterface 接口来代替。</p></li>
+</ul>
+
+<h2 id="路由调整">路由调整</h2>
+
+<ul>
+<li>在原来版本中的 routes.php 文件需要全部迁移到 Routes目录下，并根据原有路由的请求区分成 api.php，web.php 等路由，并将原有的路由内容拷贝到对应文件中</li>
+<li>Route::redirect 方法现在返回 HTTP 状态码为 302 的重定向，新增 permanentRedirect 方法实现 301 重定向。</li>
+</ul>
+
+<h2 id="缓存调整">缓存调整</h2>
+
+<ul>
+<li><p>为了在存储数据时允许更精细的到期时间，缓存数据的生存时间从分改为秒。 Illuminate\Cache\Repository 类和它的扩展类的 put ， putMany ， add ， remember 和 setDefaultCacheTime 方法，以及所有缓存存储器的 put 方法都完成了此更新，如果要向这些方法中的任何一个传递整数，请更新代码以确保保留在缓存中的数据传递的数值是秒，而不是分钟，例如：</p>
+
+<pre><code>// 原来老版本 - 存储数据30分钟
+Cache::put('patpat', 'patpat', 30);
+
+// 升级之后的版本 - 存储数据30秒
+Cache::put('patpat', 'patpat', 30);
+
+// 新版本如果要存储30分钟
+Cache::put('patpat', 'patpat', 30 * 60);
+</code></pre></li>
+</ul>
+
+<h2 id="eloquent-调整">Eloquent 调整</h2>
+
+<ul>
+<li><p>如果你用一个自定义的中继模型定义了多对多的关系，而且这个中继模型拥有一个自增的主键，你应当确保这个自定义中继模型类中定义了一个 incrementing 属性其值为 true</p>
+
+<pre><code>/**
+* 标识 ID 是否自增
+*
+*/
+public $incrementing = true;
+</code></pre></li>
+</ul>
+
+<h2 id="辅助函数调整">辅助函数调整</h2>
+
+<ul>
+<li><p>所有的 array<em>* and str</em>* 全局辅助函数 都被废弃。你需要直接使用 Illuminate\Support\Arr 和 Illuminate\Support\Str 提供的方法。</p>
+
+<pre><code>// 以前的老版本：
+str_limit('Hello world', 2)
+
+// 更新后的版本
+Str::limit('Hello world', 2)
+</code></pre></li>
+</ul>
+
+<p>也可以在项目中添加新的 laravel/helpers 包来继续使用这些辅助函数</p>
+
+<pre><code>composer require laravel/helpers
+</code></pre>
+
+<h2 id="授权调整">授权调整</h2>
+
+<ul>
+<li>如有使用 authorizeResource 方法附加到控制器中的授权策略，现在应该要定义一个 viewAny 方法，当用户访问控制器中的 index 方法它就会被调用。换而言之，未经授权去访问控制器中的 index 方法将被拒绝。</li>
+<li>如果你重写过 Laravel 框架中 RegisterController 的 register 或 registered 方法 ， 则应确保在对应方法中调用了 parent::register 和 parent::registered 方法，因为 Illuminate\Auth\Events\Registered 事件触发和新用户登录逻辑现在被移到 registered 方法中了，如果你重写了这些方法而没有调用对应的父级方法，则用户注册处理会失败。</li>
+</ul>
+
+<h2 id="carbon-包调整">Carbon 包调整</h2>
+
+<ul>
+<li>Carbon 1.x 不再支持，所有使用到 Carbon 都得更新为 Carbon 2.0</li>
+</ul>
+
+<h2 id="本地化调整">本地化调整</h2>
+
+<ul>
+<li>翻译器的 Lang::trans 和 Lang::transChoice 方法已重命名为 Lang::get 和 Lang::choice，另外，如果你正在手动实现 Illuminate\Contracts\Translation\Translator 契约，你应该将实现的 trans 和 transChoice 方法更新为 get 和 choice</li>
+</ul>
+
+<h2 id="队列调整">队列调整</h2>
+
+<ul>
+<li><p>在之前的 Laravel 版本 中，php artisan queue:work 命令会无限期重试队列任务，从 Laravel 6.0 开始，该命令默认只会重试队列任务一次，如果你想要强制任务无限期重试， 可以通过 &ndash;tries=0 指定:</p>
+
+<pre><code>php artisan queue:work --tries=0
+</code></pre></li>
+</ul>
+
+<p>另外，请确保你的数据库中包含 failed_jobs 数据表。你可以通过 Artisan 命令 queue:failed-table 来生成这个迁移:</p>
+
+<pre><code>php artisan queue:failed-table
+</code></pre>
+
+<h2 id="请求-facades-调整">请求 Facades 调整</h2>
+
+<ul>
+<li><p>Input 门面是 Request 门面的复制品，已经被移除。如果你在使用 Input::get 方法，将其替换成 Request::input 方法。所有其他调用 Input 门面的地方都用需替换为 Request 门面.</p>
+
+<pre><code>// 原来老的版本
+Input::get('patpat')
+
+// 更新后的版本
+Request::input('patpat')
+或
+request()-&gt;input('patpat')
+</code></pre></li>
+</ul>
+
+<h1 id="其他第三方包升级">其他第三方包升级</h1>
+
+<p>因为项目里还使用到 &ldquo;torann/geoip&rdquo; 获取 ip 的扩展包以及 &ldquo;caffeinated/modules&rdquo; 项目模块化扩展包，还有 laravel 框架下收集项目日志的 patpat/laravel-log-collection 扩展包，因此这三个包也要进行对应的版本升级</p>
+
+<ul>
+<li><p>打开 composer.json 文件，以上两个扩展包版本分别修改成</p>
+
+<pre><code>&quot;torann/geoip&quot;: &quot;1.0.10&quot;,
+&quot;caffeinated/modules&quot;: &quot;~6.0.0&quot;,
+&quot;patpat/laravel-log-collection&quot;: &quot;dev-develop&quot;
+</code></pre></li>
+</ul>
+
+<p>执行 composer update -vvv &ndash;no-scripts</p>
+
+<ul>
+<li><p>打开 config\geoip.php 文件，将原有内容</p>
+
+<pre><code>&lt;?php
+
+return array(
+
+	/*
+	|--------------------------------------------------------------------------
+	| Service
+	|--------------------------------------------------------------------------
+	|
+	| Current only supports 'maxmind'.
+	|
+	*/
+
+	'service' =&gt; 'maxmind',
+
+	/*
+	|--------------------------------------------------------------------------
+	| Services settings
+	|--------------------------------------------------------------------------
+	|
+	| Service specific settings.
+	|
+	*/
+
+	'maxmind' =&gt; array(
+		'type'          =&gt; env('GEOIP_DRIVER', 'database'), // database or web_service
+		'user_id'       =&gt; env('GEOIP_USER_ID'),
+		'license_key'   =&gt; env('GEOIP_LICENSE_KEY'),
+		'database_path' =&gt; storage_path('app/geoip.mmdb'),
+		'update_url'    =&gt; 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
+		'locales'       =&gt; ['en'],
+	),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Default Location
+	|--------------------------------------------------------------------------
+	|
+	| Return when a location is not found.
+	|
+	*/
+
+	'default_location' =&gt; array (
+		&quot;ip&quot;           =&gt; &quot;127.0.0.0&quot;,
+		&quot;isoCode&quot;      =&gt; &quot;US&quot;,
+		&quot;country&quot;      =&gt; &quot;United States&quot;,
+		&quot;city&quot;         =&gt; &quot;New Haven&quot;,
+		&quot;state&quot;        =&gt; &quot;CT&quot;,
+		&quot;postal_code&quot;  =&gt; &quot;06510&quot;,
+		&quot;lat&quot;          =&gt; 41.31,
+		&quot;lon&quot;          =&gt; -72.92,
+		&quot;timezone&quot;     =&gt; &quot;America/New_York&quot;,
+		&quot;continent&quot;    =&gt; &quot;NA&quot;,
+	),
+
+);
+
+</code></pre></li>
+</ul>
+
+<p>修改成：</p>
+
+<pre><code>&lt;?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Logging Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log settings for when a location is not found
+    | for the IP provided.
+    |
+    */
+
+    'log_failures' =&gt; true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Include Currency in Results
+    |--------------------------------------------------------------------------
+    |
+    | When enabled the system will do it's best in deciding the user's currency
+    | by matching their ISO code to a preset list of currencies.
+    |
+    */
+
+    'include_currency' =&gt; true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Service
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default storage driver that should be used
+    | by the framework.
+    |
+    | Supported: &quot;maxmind_database&quot;, &quot;maxmind_api&quot;, &quot;ipapi&quot;
+    |
+    */
+
+    'service' =&gt; 'ipapi',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Storage Specific Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure as many storage drivers as you wish.
+    |
+    */
+
+    'services' =&gt; [
+
+        'maxmind_database' =&gt; [
+            'class' =&gt; \Torann\GeoIP\Services\MaxMindDatabase::class,
+            'database_path' =&gt; storage_path('app/geoip.mmdb'),
+            'update_url' =&gt; 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz',
+            'locales' =&gt; ['en'],
+        ],
+
+        'maxmind_api' =&gt; [
+            'class' =&gt; \Torann\GeoIP\Services\MaxMindWebService::class,
+            'user_id' =&gt; env('MAXMIND_USER_ID'),
+            'license_key' =&gt; env('MAXMIND_LICENSE_KEY'),
+            'locales' =&gt; ['en'],
+        ],
+
+        'ipapi' =&gt; [
+            'class' =&gt; \Torann\GeoIP\Services\IPApi::class,
+            'secure' =&gt; true,
+            'key' =&gt; env('IPAPI_KEY'),
+            'continent_path' =&gt; storage_path('app/continents.json'),
+            'lang' =&gt; 'en',
+        ],
+
+        'ipgeolocation' =&gt; [
+            'class' =&gt; \Torann\GeoIP\Services\IPGeoLocation::class,
+            'secure' =&gt; true,
+            'key' =&gt; env('IPGEOLOCATION_KEY'),
+            'continent_path' =&gt; storage_path('app/continents.json'),
+            'lang' =&gt; 'en',
+        ],
+
+        'ipdata' =&gt; [
+            'class'  =&gt; \Torann\GeoIP\Services\IPData::class,
+            'key'    =&gt; env('IPDATA_API_KEY'),
+            'secure' =&gt; true,
+        ],
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Cache Driver
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the type of caching that should be used
+    | by the package.
+    |
+    | Options:
+    |
+    |  all  - All location are cached
+    |  some - Cache only the requesting user
+    |  none - Disable cached
+    |
+    */
+
+    'cache' =&gt; 'all',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Tags
+    |--------------------------------------------------------------------------
+    |
+    | Cache tags are not supported when using the file or database cache
+    | drivers in Laravel. This is done so that only locations can be cleared.
+    |
+    */
+
+    'cache_tags' =&gt; ['torann-geoip-location'],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Expiration
+    |--------------------------------------------------------------------------
+    |
+    | Define how long cached location are valid.
+    |
+    */
+
+    'cache_expires' =&gt; 30,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Location
+    |--------------------------------------------------------------------------
+    |
+    | Return when a location is not found.
+    |
+    */
+
+    'default_location' =&gt; [
+        'ip' =&gt; '127.0.0.0',
+        'iso_code' =&gt; 'US',
+        'country' =&gt; 'United States',
+        'city' =&gt; 'New Haven',
+        'state' =&gt; 'CT',
+        'state_name' =&gt; 'Connecticut',
+        'postal_code' =&gt; '06510',
+        'lat' =&gt; 41.31,
+        'lon' =&gt; -72.92,
+        'timezone' =&gt; 'America/New_York',
+        'continent' =&gt; 'NA',
+        'default' =&gt; true,
+        'currency' =&gt; 'USD',
+    ],
+
+];
+
+</code></pre>
+
+<ul>
+<li>在 App\Modules 下，所有的原有 module 都需要做以下的调整，创建 Routes 文件夹，在 Routes 目录下创建 api.php 和 web.php 文件，将原来 App\Modules\Module\Http 目录下的 routes.php 文件的内容按照 web 请求和 api 的请求分别拷贝到对应的 web.php 和 api.php 文件里，此处的 Module 指的是原来 Modules 目录下原有的 Module，例如：App\Modules\Test</li>
+
+<li><p>以原有项目存在的 Test 模块为例，打开 App\Modules\Test\Providers\RouteServiceProvider.php 文件，将原有文件内容</p>
+
+<pre><code>&lt;?php
+namespace App\Modules\Test\Providers;
+
+use Caffeinated\Modules\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
+
+class RouteServiceProvider extends ServiceProvider
+{
+	/**
+	 * This namespace is applied to the controller routes in your module's routes file.
+	 *
+	 * In addition, it is set as the URL generator's root namespace.
+	 *
+	 * @var string
+	 */
+	protected $namespace = 'App\Modules\Test\Http\Controllers';
+
+	/**
+	 * Define your module's route model bindings, pattern filters, etc.
+	 *
+	 * @param  \Illuminate\Routing\Router $router
+	 * @return void
+	 */
+	public function boot(Router $router)
+	{
+		parent::boot($router);
+
+		//
+	}
+
+	/**
+	 * Define the routes for the module.
+	 *
+	 * @param  \Illuminate\Routing\Router $router
+	 * @return void
+	 */
+	public function map(Router $router)
+	{
+		$router-&gt;group(['namespace' =&gt; $this-&gt;namespace], function($router)
+		{
+			require (config('modules.path').'/Test/Http/routes.php');
+		});
+	}
+}
+</code></pre></li>
+</ul>
+
+<p>修改成</p>
+
+<pre><code>&lt;?php
+namespace App\Modules\Test\Providers;
+
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+class RouteServiceProvider extends ServiceProvider
+{
+    /**
+     * This namespace is applied to your controller routes.
+     *
+     * In addition, it is set as the URL generator's root namespace.
+     *
+     * @var string
+     */
+    protected $namespace = 'App\Modules\Test\Http\Controllers';
+
+    /**
+     * Define your route model bindings, pattern filters, etc.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+
+        parent::boot();
+    }
+
+    /**
+     * Define the routes for the module.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this-&gt;mapWebRoutes();
+
+        $this-&gt;mapApiRoutes();
+
+        //
+    }
+
+    /**
+     * Define the &quot;web&quot; routes for the module.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::group([
+            'middleware' =&gt; 'web',
+            'namespace'  =&gt; $this-&gt;namespace,
+        ], function ($router) {
+            require module_path('test', 'Routes/web.php');
+        });
+    }
+
+    /**
+     * Define the &quot;api&quot; routes for the module.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' =&gt; 'api',
+            'namespace'  =&gt; $this-&gt;namespace,
+            'prefix'     =&gt; 'api',
+        ], function ($router) {
+            require module_path('test', 'Routes/api.php');
+        });
+    }
+}
+</code></pre>
+
+<ul>
+<li><p>在 App\Modules\Test\Providers 目录下删除原有的 TestServiceProvider.php 文件并添加 ModuleServiceProvider.php 文件</p>
+
+<pre><code>namespace App\Modules\Test\Providers;
+
+use Caffeinated\Modules\Support\ServiceProvider;
+
+class ModuleServiceProvider extends ServiceProvider
+{
+/**
+ * Bootstrap the module services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    $this-&gt;loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'test');
+    $this-&gt;loadViewsFrom(__DIR__.'/../Resources/Views', 'test');
+    $this-&gt;loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'test');
+    $this-&gt;loadConfigsFrom(__DIR__.'/../config');
+}
+
+/**
+ * Register the module services.
+ *
+ * @return void
+ */
+public function register()
+{
+    $this-&gt;app-&gt;register(RouteServiceProvider::class);
+}
+}
+</code></pre></li>
+
+<li><p>按照以上的步骤，就完成了项目内框架版本的从 5.2 到 6.x 的升级以及项目有依赖到框架版本的第三包（torann/geoip 和 caffeinated/modules 和 patpat/laravel-log-collection）升级, PS：所有用到了 caffeinated/modules 包的原有模块都要按照这个步骤来实现，要不然新版的扩展会报错以及找不到路由等等，其他更多的第三方扩展包升级这里不做赘述了</p></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/laravel/">Laravel</a>
+
+  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/php/">php</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/go-module-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%8C%85/" data-tooltip="Go Module 引入本地包">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Journey. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/go-module-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%8C%85/" data-tooltip="Go Module 引入本地包">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Journey</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        A developer
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        China
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://journey-z.github.io/img/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://journey-z.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/journey-z.github.io\/2020\/03\/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7\/';
+          
+            this.page.identifier = '\/2020\/03\/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'journey';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

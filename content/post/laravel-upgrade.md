@@ -2,8 +2,7 @@
 title: "Laravel 版本升级"
 date: 2020-03-16T14:56:17+08:00
 categories:
-- Laravel
-- php
+- Laravel,php
 tags:
 - Laravel
 - php
