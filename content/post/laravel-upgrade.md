@@ -52,8 +52,10 @@ Laravel 版本由5.2升级到6.x...
 Laravel LTS 版本如上表格所示，支持两年的 bug 修复和三年的安全更新支持，而一般的发行版只提供了六个月的 bug 修复支持和一年的安全修复支持，所以本次升级选择最终升级到最新的 laravel LTS 版本 6.0
 # 开始升级
 因为官网的升级步骤都一个版本一个升级，这里是直接升级从 5.2 到  6.0 LTS 作为一个跨度，将每个版本的逐级升级总结出来
-* 打开 composer.json 文件，laravel 版本从 5.2.* 修改成 \^6.0, 另外还应该将 fideloper/proxy 依赖关系更新至 ~4.0
-* 在 require-dev 部分下修改 symfony/css-selector 和 symfony/dom-crawler 到 ~4.0，修改 phpunit/phpunit 到 ~7.0，添加 "filp/whoops":"~2.0"，修改 fzaninotto/faker 到 ~1.4，修改 barryvdh/laravel-ide-helper 到 \^2.6.6，修改 barryvdh/laravel-debugbar 到 \^3.2.8，具体如下：
+
+* 打开 composer.json 文件，laravel 版本从 5.2.* 修改成 ^6.0, 另外还应该将 fideloper/proxy 依赖关系更新至 ~4.0
+
+* 在 require-dev 部分下修改 symfony/css-selector 和 symfony/dom-crawler 到 ~4.0，修改 phpunit/phpunit 到 ~7.0，添加 "filp/whoops":"~2.0"，修改 fzaninotto/faker 到 ~1.4，修改 barryvdh/laravel-ide-helper 到 ^2.6.6，修改 barryvdh/laravel-debugbar 到 ^3.2.8，具体如下：
 
 
 ```
