@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Laravel on Journey&#39;s Blog</title>
-    <link>https://journey-z.github.io/categories/laravel/</link>
-    <description>Recent content in Laravel on Journey&#39;s Blog</description>
+    <title>Laravel,php on Journey&#39;s Blog</title>
+    <link>https://journey-z.github.io/categories/laravelphp/</link>
+    <description>Recent content in Laravel,php on Journey&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 16 Mar 2020 14:56:17 +0800</lastBuildDate>
     
-	<atom:link href="https://journey-z.github.io/categories/laravel/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://journey-z.github.io/categories/laravelphp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

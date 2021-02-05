@@ -13,10 +13,10 @@
 
 <meta property="og:description" content="么得感情的编程机器">
 <meta property="og:type" content="website">
-<meta property="og:title" content="php">
-<meta name="twitter:title" content="php">
-<meta property="og:url" content="https://journey-z.github.io/categories/php/">
-<meta property="twitter:url" content="https://journey-z.github.io/categories/php/">
+<meta property="og:title" content="Posts">
+<meta name="twitter:title" content="Posts">
+<meta property="og:url" content="https://journey-z.github.io/posts/">
+<meta property="twitter:url" content="https://journey-z.github.io/posts/">
 <meta property="og:site_name" content="Journey&#39;s Blog">
 <meta property="og:description" content="么得感情的编程机器">
 <meta name="twitter:description" content="么得感情的编程机器">
@@ -39,16 +39,16 @@
   <meta property="twitter:image" content="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg">
 
 
-    <title>php</title>
+    <title>Posts</title>
 
     <link rel="icon" href="img/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://journey-z.github.io/categories/php/index.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://journey-z.github.io/posts/index.xml">
     
 
     
 
-    <link rel="canonical" href="https://journey-z.github.io/categories/php/">
+    <link rel="canonical" href="https://journey-z.github.io/posts/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -175,84 +175,75 @@
 </nav>
 
       
-        
 
-      
       <div id="main" data-behavior="2"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
+        <section class="postShorten-group main-content-wrap">
+          
+          
+          
             
-            
-              
   
+    
+      
+        
+      
     
   
 
 
   
 
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
   <div class="postShorten-wrap">
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/">
-          Laravel 版本升级
+        <a class="link-unstyled" href="https://journey-z.github.io/posts/micro-frame/">
+          微服务架构
         </a>
       </h1>
       
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-16T14:56:17&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-02-05T16:22:25&#43;08:00">
         
-  三月 16, 2020
+  二月 5, 2021
 
       </time>
     
     
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://journey-z.github.io/categories/laravel">Laravel</a>, 
-    
-      <a class="category-link" href="https://journey-z.github.io/categories/php">php</a>
-    
-  
-
   </div>
 
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
       
-        <p>Laravel 版本由5.2升级到6.x&hellip;</p>
+        服务化项目讨论 上次会议回顾 上次会议纪要： 服务注册与发现管理的服务实例元数据和字段分析
+ name：服务名称 tags：服务的 tag，自定义，可以根据这个tag来区分同一个服务名的服务。 address：服务注册到 consul 的 IP，服务发现，发现的就是这个 IP。 port：服务注册consul的PORT，发现的就是这个 port。 meta: 其他一些自定义的数据。  基础支撑服务结合 aws 服务调研
+目前在 aws 上有 cloud map 提供服务注册和发现的服务托管和 Api Gateway 网关的服务托管，X-ray 服务追踪和监控托管，暂时还没花时间去研究
+服务化架构图调整
+服务化核心支撑服务  api 服务网关 服务注册与发现 服务容错 服务链路追踪  API 服务网关 服务网关的作用：网关就是一个处于应用程序或服务之前的系统，用来管理授权、访问控制和流量限制等。
+API 网关的职能主要有：  请求接入：作为所有 API 接口服务请求的接入点，管理所有的接入请求。 业务聚合：作为所有后端业务服务的聚合点，所有的业务服务都可以在这里被调用。 拦截插件：实现安全、验证、路由、过滤、流控、缓存等策略，进行一些必要的插件去处理。 统一管理：提供配置管理工具，对所有 API 服务的调用生命周期和相应的中介策略进行统一管理。  API 网关设计和选型的关注点： 1. 开发维护简单，节约人力成本和维护成本。应选择成熟的简单可维护的技术体系。 2. 高性能，节约设备成本，提高系统吞吐能力。要求我们需要针对 API 网关的特点进行一些特定的设计和权衡。
+鉴于目前我们网关相关技术栈主要是基于 Nginx，选择了网上开源热度较高的 Kong 和 Nginx 进行比较:
       
       <p>
-        <a href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/" class="postShorten-excerpt_link link">阅读全文</a>
+        <a href="https://journey-z.github.io/posts/micro-frame/" class="postShorten-excerpt_link link">阅读全文</a>
         
       </p>
     </div>
   </div>
   
-    <a href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://journey-z.github.io/img/laravel.png"/>
-      </div>
-    </a>
-  
 </article>
 
-            
-            
+          
+          
 
-          </section>
-        
+        </section>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Journey. All Rights Reserved
+    &copy; 2021 Journey. All Rights Reserved
   </span>
 </footer>
 

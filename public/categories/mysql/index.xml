@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on Journey&#39;s Blog</title>
+    <link>https://journey-z.github.io/categories/mysql/</link>
+    <description>Recent content in Mysql on Journey&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 16 Mar 2020 18:28:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://journey-z.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql explain 语句各个字段解释</title>
+      <link>https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Mon, 16 Mar 2020 18:28:45 +0800</pubDate>
+      
+      <guid>https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/</guid>
+      <description>&lt;p&gt;学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

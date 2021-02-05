@@ -6,26 +6,26 @@
     <description>Recent content in Categories on Journey&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Mar 2020 14:56:17 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2020 18:28:45 +0800</lastBuildDate>
     
 	<atom:link href="https://journey-z.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Laravel</title>
-      <link>https://journey-z.github.io/categories/laravel/</link>
-      <pubDate>Mon, 16 Mar 2020 14:56:17 +0800</pubDate>
+      <title>Mysql</title>
+      <link>https://journey-z.github.io/categories/mysql/</link>
+      <pubDate>Mon, 16 Mar 2020 18:28:45 +0800</pubDate>
       
-      <guid>https://journey-z.github.io/categories/laravel/</guid>
+      <guid>https://journey-z.github.io/categories/mysql/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>php</title>
-      <link>https://journey-z.github.io/categories/php/</link>
+      <title>Laravel,php</title>
+      <link>https://journey-z.github.io/categories/laravelphp/</link>
       <pubDate>Mon, 16 Mar 2020 14:56:17 +0800</pubDate>
       
-      <guid>https://journey-z.github.io/categories/php/</guid>
+      <guid>https://journey-z.github.io/categories/laravelphp/</guid>
       <description></description>
     </item>
     

@@ -7,36 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Journey">
-<meta name="keywords" content="go, go install, go build">
-<meta name="description" content="golang 基本命令的一些用法和解释&hellip;">
+<meta name="keywords" content="Mysql">
+<meta name="description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
 
 
-<meta property="og:description" content="golang 基本命令的一些用法和解释&hellip;">
+<meta property="og:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Go 基本命令参数">
-<meta name="twitter:title" content="Go 基本命令参数">
-<meta property="og:url" content="https://journey-z.github.io/2019/11/go-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0/">
-<meta property="twitter:url" content="https://journey-z.github.io/2019/11/go-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0/">
+<meta property="og:title" content="Mysql explain 语句各个字段解释">
+<meta name="twitter:title" content="Mysql explain 语句各个字段解释">
+<meta property="og:url" content="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
+<meta property="twitter:url" content="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
 <meta property="og:site_name" content="Journey&#39;s Blog">
-<meta property="og:description" content="golang 基本命令的一些用法和解释&hellip;">
-<meta name="twitter:description" content="golang 基本命令的一些用法和解释&hellip;">
+<meta property="og:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
+<meta name="twitter:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2019-11-15T15:05:43">
+    <meta property="article:published_time" content="2020-03-16T18:28:45">
   
   
-    <meta property="article:modified_time" content="2019-11-15T15:05:43">
+    <meta property="article:modified_time" content="2020-03-16T18:28:45">
   
-  
-  
-    
-      <meta property="article:section" content="Golang">
-    
   
   
     
-      <meta property="article:tag" content="go">
+      <meta property="article:section" content="Mysql">
+    
+  
+  
+    
+      <meta property="article:tag" content="Mysql">
     
   
 
@@ -49,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://journey-z.github.io/img/gopher10th-small.jpg">
-  <meta property="twitter:image" content="https://journey-z.github.io/img/gopher10th-small.jpg">
+  <meta property="og:image" content="https://journey-z.github.io/img/mysql-logo.png">
+  <meta property="twitter:image" content="https://journey-z.github.io/img/mysql-logo.png">
 
 
 
@@ -60,14 +60,14 @@
   <meta property="twitter:image" content="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg">
 
 
-    <title>Go 基本命令参数</title>
+    <title>Mysql explain 语句各个字段解释</title>
 
     <link rel="icon" href="img/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://journey-z.github.io/2019/11/go-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0/">
+    <link rel="canonical" href="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -205,15 +205,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Go 基本命令参数
+      Mysql explain 语句各个字段解释
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2019-11-15T15:05:43&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-03-16T18:28:45&#43;08:00">
         
-  十一月 15, 2019
+  三月 16, 2020
 
       </time>
     
@@ -222,7 +222,7 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://journey-z.github.io/categories/golang">Golang</a>
+      <a class="category-link" href="https://journey-z.github.io/categories/mysql">Mysql</a>
     
   
 
@@ -232,122 +232,241 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>golang 基本命令的一些用法和解释&hellip;</p>
+              <p>学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;</p>
 
-<h3 id="go-install">go install</h3>
+<h3 id="mysql-explain语句字段解释和作用">MySQL Explain语句字段解释和作用</h3>
 
-<p>先编译生成对应的 .a 文件，然后再移动到 $GOPATH/pkg 或者 $GOPATH/bin 目录下</p>
+<ol>
+<li><h4 id="字段解释">字段解释</h4>
 
-<p><code>go intall</code></p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>解释</th>
+</tr>
+</thead>
 
-<p>如果后面带上 -v 参数，则显示底层执行信息</p>
+<tbody>
+<tr>
+<td>id</td>
+<td>SELECT 查询的标识符. 每个 SELECT 都会自动分配一个唯一的标识符.</td>
+</tr>
 
-<p><code>go install -v</code></p>
+<tr>
+<td>select_type</td>
+<td>SELECT 查询的类型</td>
+</tr>
 
-<h3 id="go-build">go build</h3>
+<tr>
+<td>table</td>
+<td>查询的是哪个表</td>
+</tr>
 
-<p>将该包打包为一个 .a 文件，然后可以被其他包引用</p>
+<tr>
+<td>type</td>
+<td>类型</td>
+</tr>
 
-<p><code>go build</code></p>
+<tr>
+<td>possible_keys</td>
+<td>此次查询中可能选用的索引</td>
+</tr>
 
-<p>如果当前包为 <code>package main</code>，则将此包打包为一个可运行程序；如果需要在 <code>$GOPATH/bin</code> 下生成可执行文件，那么需要执行 <code>go install</code></p>
+<tr>
+<td>key</td>
+<td>此次查询中确切使用到的索引.</td>
+</tr>
 
-<p><code>go build</code> 默认情况下会忽略 <code>_</code> 和 <code>.</code> 开头的 go 文件</p>
+<tr>
+<td>ref:</td>
+<td>哪个字段或常数与 key 一起被使用</td>
+</tr>
 
-<h4 id="go-build-参数说明">go build 参数说明</h4>
+<tr>
+<td>rows</td>
+<td>显示此查询一共扫描了多少行. 这个是一个估计值.</td>
+</tr>
 
-<ul>
-<li><code>-o</code> 指定输出的文件名，可以带上路径</li>
-<li><code>-i</code> 安装相应的包，编译+<code>go install</code></li>
-<li><code>-n</code> 把需要执行的命令打印出来，但是不执行，这样可以理解相应命令底层到底做了什么</li>
-<li><code>-p n</code> 指定并行可运行的编译数量，默认是 CPU 数量</li>
-<li><code>-a</code> 更新包，对标准包不起作用</li>
-<li><code>-race</code> 开启编译时自动显示数据竞争情况</li>
-<li><code>-v</code> 打印我们正在编译的包名</li>
-<li><code>-work</code> 打印编译时候临时文件夹的名称，如果已经存在就不删除</li>
-<li><code>-x</code> 打印出编译需要执行的命令，与<code>-n</code>不同的是 <code>-x</code> 执行打印输出的命令</li>
-<li><code>-ccflags 'args list'</code> 传递参数给 5c,6c,8c 调用</li>
-<li><code>-compile name</code> 指定编译器，<code>gccgo</code> or <code>gc</code></li>
-<li><code>-gcflags 'args list'</code> 传递参数给 5g,6g,8g</li>
-<li><code>-installsuffix suffix</code> 为了和安装包区分开来</li>
-<li><code>-ldflags 'args list'</code> 传递参数给 5l,6l,8l</li>
-<li><code>-tags 'tags list'</code> 设置在编译时候可以适配的那些 tag</li>
-</ul>
+<tr>
+<td>filtered</td>
+<td>表示此查询条件所过滤的数据的百分比</td>
+</tr>
 
-<p>如果代码需要执行某些跨平台的操作，那么可以使用 <code>xxxx_linux.go</code> <code>xxxx_darwin.go</code> <code>xxxx_windows.go</code> 等命名，执行 go 命令只会采用以 <code>_platform</code> 当前系统名称结尾的文件</p>
+<tr>
+<td>extra</td>
+<td>额外的信息</td>
+</tr>
+</tbody>
+</table></li>
 
-<h3 id="go-get">go get</h3>
+<li><h4 id="select-type-表示了查询的类型-它的常用取值有">select_type 表示了查询的类型, 它的常用取值有</h4>
 
-<p>获取包</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释</th>
+</tr>
+</thead>
 
-<h4 id="参数说明">参数说明</h4>
+<tbody>
+<tr>
+<td><strong>SIMPLE</strong></td>
+<td>简单查询，该查询不包含 UNION 或子查询</td>
+</tr>
 
-<ul>
-<li><code>-d</code> 只下载不安装</li>
-<li><code>-v</code> 显示执行的命令</li>
-<li><code>-u</code> 强制使用网络去更新包和它的依赖包</li>
-<li><code>-t</code> 下载测试所需要的包</li>
-<li><code>-fix</code> 在获取源码之后，先运行 fix，然后再去做其他事</li>
-<li><code>-f</code> 只有包含了 <code>-u</code> 参数时才生效，不去验证每一个 import 是否已经获取了，对于本地 fork 的包特别有效</li>
-</ul>
+<tr>
+<td><strong>PRIMARY</strong></td>
+<td>如果查询包含UNION 或子查询，则<strong>最外层的查询</strong>被标识为PRIMARY</td>
+</tr>
 
-<h3 id="go-clean">go clean</h3>
+<tr>
+<td>UNION</td>
+<td>表示此查询是 UNION 中的第二个或者随后的查询</td>
+</tr>
 
-<p>删除当前源码包和关联源码包里面编译生成的文件</p>
+<tr>
+<td>DEPENDENT</td>
+<td>UNION 满足 UNION 中的第二个或者随后的查询，其次取决于外面的查询</td>
+</tr>
 
-<h4 id="参数说明-1">参数说明</h4>
+<tr>
+<td><strong>SUBQUERY</strong></td>
+<td>子查询中的第一个select语句(该子查询不在from子句中)</td>
+</tr>
 
-<ul>
-<li><code>-i</code> 清除关联的安装的包和可运行文件，也就是通过 <code>go install</code> 生成的文件</li>
-<li><code>-n</code> 打印执行的相应命令，但是不执行</li>
-<li><code>-r</code> 循环清除 import 中引入的包</li>
-<li><code>-x</code> 输出执行的命令，并且执行</li>
-</ul>
+<tr>
+<td>DEPENDENT SUBQUERY</td>
+<td>子查询中的 第一个 select，同时取决于外面的查询</td>
+</tr>
 
-<h3 id="go-fmt">go fmt</h3>
+<tr>
+<td><strong>DERIVED</strong></td>
+<td>包含在from子句中子查询(也称为派生表)</td>
+</tr>
 
-<p>格式化 go 代码，也就是 vscode 失去焦点后自动执行的命令，这样可以保证一个团队中代码风格统一</p>
+<tr>
+<td>UNCACHEABLE SUBQUERY</td>
+<td>满足是子查询中的第一个 select 语句，同时意味着 select 中的某些特性阻止结果被缓存于一个 Item_cache 中</td>
+</tr>
 
-<h4 id="参数说明-2">参数说明</h4>
+<tr>
+<td>UNCACHEABLE UNION</td>
+<td>满足此查询是 UNION 中的第二个或者随后的查询，同时意味着 select 中的某些特性阻止结果被缓存于一个 Item_cache 中</td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li><code>-l</code> 显示需要格式化的文件</li>
-<li><code>-w</code> 将格式化的结果输出到文件，而不是打印输出，如果不带该参数最终结果将不会输出到文件</li>
-<li><code>-r</code> 添加重写规则，方便做批量替换</li>
-<li><code>-s</code> 简化文件中的代码</li>
-<li><code>-d</code> 显示格式户前后的 diff，而不写入文件</li>
-<li><code>-e</code> 打印所有的语法错误到控制台</li>
-<li><code>-cpuprofile</code> 支持调试模式，写入相应的 <code>cpufile</code> 到指定文件</li>
-</ul>
+<p>加粗的最为常见</p></li>
 
-<h3 id="go-test">go test</h3>
+<li><h5 id="table">table</h5>
 
-<p>读取源码目录下的 <code>*_test.go</code> 文件，执行测试用例</p>
+<p>该列显示了对应行正在访问哪个表(有别名就显示别名)。</p>
 
-<h4 id="参数说明-3">参数说明</h4>
+<p>当from子句中有子查询时，table列是 <code>&lt;derivenN&gt;</code>格式，表示当前查询依赖 <code>id=N</code>的查询，于是先执行 <code>id=N</code> 的查询</p></li>
 
-<ul>
-<li><code>-bench regexp</code> 执行相应的 benchmark，例如 <code>-bench=.</code></li>
-<li><code>-cover</code> 开启测试覆盖率</li>
-<li><code>-run regexp</code> 只运行匹配正则 regexp 的函数，例如 * <code>-run=Array</code> 只运行所有以 Array 开头的函数</li>
-<li><code>-v</code> 显示测试的详细命令</li>
-</ul>
+<li><h5 id="type-该列称为关联类型或者访问类型-它指明了mysql决定如何查找表中符合条件的行-同时是我们判断查询是否高效的重要依据-以下为常见取值">type 该列称为关联类型或者访问类型，它指明了MySQL决定如何查找表中符合条件的行，同时是我们判断查询是否高效的重要依据，以下为常见取值：</h5>
 
-<h3 id="go-tool">go tool</h3>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释</th>
+</tr>
+</thead>
 
-<p>go tool 下聚集了很多命令，比如 <code>fix</code> <code>vet</code></p>
+<tbody>
+<tr>
+<td>ALL</td>
+<td><strong>全表扫描</strong>，这个类型是性能最差的查询之一。通常来说，我们的查询不应该出现 ALL 类型，因为这样的查询，在数据量最大的情况下，对数据库的性能是巨大的灾难</td>
+</tr>
 
-<ul>
-<li><code>go tool fix</code> 用来修复老版本的代码到新版本，自动修改变化的 API</li>
-<li><code>go tool vet directories | files</code> 分析代码的语法是否正确，比如检查 <code>fmt.Printf()</code> 中的参数是否正确，</li>
-<li><code>return</code> 之后是否还有多余的代码</li>
-</ul>
+<tr>
+<td>index</td>
+<td><strong>全索引扫描</strong>，和 ALL 类型类似，只不过 ALL 类型是全表扫描，而 index 类型是扫描全部的索引，主要优点是避免了排序，但是开销仍然非常大。如果在 Extra 列看到 Using index，说明正在使用覆盖索引，只扫描索引的数据，它比按索引次序全表扫描的开销要少很多</td>
+</tr>
 
-<h3 id="go-generate">go generate</h3>
+<tr>
+<td>range</td>
+<td><strong>范围扫描</strong>，就是一个有限制的索引扫描，它开始于索引里的某一点，返回匹配这个值域的行。这个类型通常出现在 <code>=、&lt;&gt;、&gt;、&gt;=、&lt;、&lt;=、IS NULL、&lt;=&gt;、BETWEEN、IN()</code> 的操作中，key 列显示使用了哪个索引，当 type 为该值时，则输出的 ref 列为 NULL，并且 key_len 列是此次查询中使用到的索引最长的那个</td>
+</tr>
 
-<p>用来在编译前生成某些代码，是通过分析源码中特殊的注释，判断需要生成某些特殊代码</p>
+<tr>
+<td>ref</td>
+<td>一种索引访问，也称索引查找，它返回所有匹配某个单个值的行。此类型通常出现在多表的 join 查询, 针对于非唯一或非主键索引, 或者是使用了最左前缀规则索引的查询</td>
+</tr>
 
-<p><code>go generate</code> 是给当前包的开发人员使用的，而不是给使用该包的人使用的</p>
+<tr>
+<td>eq_ref</td>
+<td>使用这种索引查找，最多只返回一条符合条件的记录。在使用唯一性索引或主键查找时会出现该值，非常高效</td>
+</tr>
+
+<tr>
+<td>const、system</td>
+<td>该表至多有一个匹配行，在查询开始时读取，或者该表是系统表，只有一行匹配。其中 const 用于在和 primary key 或 unique 索引中有固定值比较的情形</td>
+</tr>
+
+<tr>
+<td>NULL</td>
+<td>在执行阶段不需要访问表</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><h5 id="possible-keys">possible_keys</h5>
+
+<p>这一列显示查询<strong>可能</strong>使用哪些索引来查找</p></li>
+
+<li><h5 id="key">key</h5>
+
+<p>这一列显示MySQL<strong>实际</strong>决定使用的索引。如果没有选择索引，键是NULL</p></li>
+
+<li><h5 id="key-len">key_len</h5>
+
+<p>这一列显示了在索引里使用的字节数，当key列的值为 NULL 时，则该列也是 NULL</p></li>
+
+<li><h5 id="ref">ref</h5>
+
+<p>这一列显示了哪些字段或者常量被用来和key配合从表中查询记录出来</p></li>
+
+<li><h5 id="rows">rows</h5>
+
+<p>这一列显示了<strong>估计</strong>要找到所需的行而要读取的行数，这个值是个估计值，原则上值越小越好。</p></li>
+
+<li><h5 id="extra-其他的信息-常见取值如下">extra 其他的信息，常见取值如下</h5>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>解释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Using index</strong></td>
+<td>使用覆盖索引，表示查询索引就可查到所需数据，不用扫描表数据文件，往往说明性能不错</td>
+</tr>
+
+<tr>
+<td>Using Where</td>
+<td>在存储引擎检索行后再进行过滤，使用了where从句来限制哪些行将与下一张表匹配或者是返回给用户</td>
+</tr>
+
+<tr>
+<td>Using temporary</td>
+<td>在查询结果排序时会使用一个临时表，一般出现于排序、分组和多表 join 的情况，查询效率不高，建议优化</td>
+</tr>
+
+<tr>
+<td>Using filesort</td>
+<td>对结果使用一个外部索引排序，而不是按索引次序从表里读取行，一般有出现该值，都建议优化去掉，因为这样的查询 CPU 资源消耗大</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
               
             </div>
           </div>
@@ -359,7 +478,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/go/">go</a>
+  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/mysql/">Mysql</a>
 
                   </div>
                 
@@ -372,7 +491,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/go-module-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%8C%85/" data-tooltip="Go Module 引入本地包">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -380,7 +499,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/%E4%BD%BF%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-tooltip="使用 Hugo 搭建个人博客">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/" data-tooltip="Laravel 版本升级">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -440,7 +559,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/go-module-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%8C%85/" data-tooltip="Go Module 引入本地包">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -448,7 +567,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2019/11/%E4%BD%BF%E7%94%A8-hugo-%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" data-tooltip="使用 Hugo 搭建个人博客">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/" data-tooltip="Laravel 版本升级">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -574,9 +693,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/journey-z.github.io\/2019\/11\/go-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0\/';
+          this.page.url = 'https:\/\/journey-z.github.io\/2020\/03\/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A\/';
           
-            this.page.identifier = '\/2019\/11\/go-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0\/'
+            this.page.identifier = '\/2020\/03\/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A\/'
           
         };
         (function() {
