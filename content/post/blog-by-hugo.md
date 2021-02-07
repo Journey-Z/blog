@@ -22,7 +22,7 @@ thumbnailImage: img/gopher-hero.svg
 
      在 [Hugo Releases](https://github.com/gohugoio/hugo/releases) 中找到适合自己系统的版本下载，进行安装，安装好需要配置好系统的环境变量
  
-    ![avatar](http://zhongyue618.com/image/blog/hugobinary_install.jpg)
+    ![avatar](https://zhongyue618.com/image/blog/hugobinary_install.jpg)
  
       因为我用的是 zsh，直接修改 .zshrc 文件
  
@@ -133,11 +133,11 @@ git push -u origin master
 
     到 journey.github.io 的 GitHub 页面，点击 setting，查看对应的域名地址
 
-    ![avatar](http://zhongyue618.com/image/blog/hugogithub_page_setting.jpg)
+    ![avatar](https://zhongyue618.com/image/blog/hugogithub_page_setting.jpg)
 
     下拉找到 GitHub Pages 相关展示页面，如下图所示：
 
-    ![avatar](http://zhongyue618.com/image/blog/hugogithub_pages.jpg)
+    ![avatar](https://zhongyue618.com/image/blog/hugogithub_pages.jpg)
 
     回到 blog 项目，在终端中执行以下命令：
 
