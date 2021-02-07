@@ -100,13 +100,13 @@ API 网关设计和选型的关注点：
 ## 服务容错
 
 **服务雪崩**：服务雪崩是指当调用链的某个环节不可用时，将会导致其上游环节不可用，并最终将这种影响扩大到整个系统中，导致整个系统的不可用。例如：
-![avatar](https://zhongyue618.com/images/sentinal.jpg)
+![avatar](https://zhongyue618.com/images/service-down.jpg)
 
 **服务熔断和降级**：当出现以上类似情况，我们需要有个熔断和降级的机制，以保证部分服务可用和整体系统的稳定性，一般熔断机制的实现现在的主流都是通过断路器组件来实现。
 
 断路器的作用和工作原理：
 
-![avatar](https://zhongyue618.com/images/service-down.jpg)
+![avatar](https://zhongyue618.com/images/sentinal.jpg)
 
 当 service-2 恢复正常，断路器关闭，调用链路回复正常
 查阅网上资料，主流使用的断路器组件是：**Hystrix**
