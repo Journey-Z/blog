@@ -20,9 +20,9 @@ thumbnailImage: img/micro-service.jpg
 
 
 # 服务化架构调研
-## 上次会议回顾
 
 ### 前期准备：
+
 **服务注册与发现管理的服务实例元数据和字段分析**
 
 * name：服务名称
