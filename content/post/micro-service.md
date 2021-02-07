@@ -11,7 +11,7 @@ keywords:
 - 微服务
 - Golang
 thumbnailImagePosition: left
-thumbnailImage: img/micro-service.png
+thumbnailImage: img/micro-service.jpg
   
 
 ---
