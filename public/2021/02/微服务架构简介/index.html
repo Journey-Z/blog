@@ -7,36 +7,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.59.1 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Journey">
-<meta name="keywords" content="Mysql">
-<meta name="description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
+<meta name="keywords" content="微服务, Golang">
+<meta name="description" content="微服务架构调研及核心基础支撑服务比较&hellip;">
 
 
-<meta property="og:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
+<meta property="og:description" content="微服务架构调研及核心基础支撑服务比较&hellip;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql explain 语句各个字段解释">
-<meta name="twitter:title" content="Mysql explain 语句各个字段解释">
-<meta property="og:url" content="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
-<meta property="twitter:url" content="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
+<meta property="og:title" content="微服务架构简介">
+<meta name="twitter:title" content="微服务架构简介">
+<meta property="og:url" content="https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/">
+<meta property="twitter:url" content="https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/">
 <meta property="og:site_name" content="Journey&#39;s Blog">
-<meta property="og:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
-<meta name="twitter:description" content="学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;">
+<meta property="og:description" content="微服务架构调研及核心基础支撑服务比较&hellip;">
+<meta name="twitter:description" content="微服务架构调研及核心基础支撑服务比较&hellip;">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2020-03-16T18:28:45">
+    <meta property="article:published_time" content="2021-02-07T11:39:25">
   
   
-    <meta property="article:modified_time" content="2020-03-16T18:28:45">
+    <meta property="article:modified_time" content="2021-02-07T11:39:25">
   
-  
-  
-    
-      <meta property="article:section" content="Mysql">
-    
   
   
     
-      <meta property="article:tag" content="Mysql">
+      <meta property="article:section" content="微服务">
+    
+      <meta property="article:section" content="Golang">
+    
+  
+  
+    
+      <meta property="article:tag" content="微服务">
+    
+      <meta property="article:tag" content="Golang">
     
   
 
@@ -49,8 +53,8 @@
 
 
 
-  <meta property="og:image" content="https://journey-z.github.io/img/mysql-logo.png">
-  <meta property="twitter:image" content="https://journey-z.github.io/img/mysql-logo.png">
+  <meta property="og:image" content="https://journey-z.github.io/img/micro-service.png">
+  <meta property="twitter:image" content="https://journey-z.github.io/img/micro-service.png">
 
 
 
@@ -60,14 +64,14 @@
   <meta property="twitter:image" content="http://zhongyue618.com/image/blog/hugo/WechatIMG9.jpeg">
 
 
-    <title>Mysql explain 语句各个字段解释</title>
+    <title>微服务架构简介</title>
 
     <link rel="icon" href="img/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/">
+    <link rel="canonical" href="https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -205,15 +209,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Mysql explain 语句各个字段解释
+      微服务架构简介
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-16T18:28:45&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-02-07T11:39:25&#43;08:00">
         
-  三月 16, 2020
+  二月 7, 2021
 
       </time>
     
@@ -222,7 +226,9 @@
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://journey-z.github.io/categories/mysql">Mysql</a>
+      <a class="category-link" href="https://journey-z.github.io/categories/%e5%be%ae%e6%9c%8d%e5%8a%a1">微服务</a>, 
+    
+      <a class="category-link" href="https://journey-z.github.io/categories/golang">Golang</a>
     
   
 
@@ -232,241 +238,264 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>学会使用 explain 来分析 mysql 查询语句，对 sql 语句进行优化&hellip;</p>
+              <p>微服务架构调研及核心基础支撑服务比较&hellip;</p>
 
-<h3 id="mysql-explain语句字段解释和作用">MySQL Explain语句字段解释和作用</h3>
+<h1 id="服务化架构调研">服务化架构调研</h1>
 
-<ol>
-<li><h4 id="字段解释">字段解释</h4>
+<h2 id="上次会议回顾">上次会议回顾</h2>
+
+<h3 id="前期准备">前期准备：</h3>
+
+<p><strong>服务注册与发现管理的服务实例元数据和字段分析</strong></p>
+
+<ul>
+<li>name：服务名称</li>
+<li>tags：服务的 tag，自定义，可以根据这个tag来区分同一个服务名的服务。</li>
+<li>address：服务注册到 consul 的 IP，服务发现，发现的就是这个 IP。</li>
+<li>port：服务注册consul的PORT，发现的就是这个 port。</li>
+<li>meta: 其他一些自定义的数据。</li>
+</ul>
+
+<p><strong>基础支撑服务结合 aws 服务调研</strong></p>
+
+<p>目前在 aws 上有 cloud map 提供服务注册和发现的服务托管和 Api Gateway 网关的服务托管，X-ray 服务追踪和监控托管，暂时还没花时间去研究</p>
+
+<p><strong>服务化架构图</strong></p>
+
+<p><img src="https://zhongyue618.com/images/frame.jpg" alt="avatar" /></p>
+
+<h2 id="服务化核心支撑服务">服务化核心支撑服务</h2>
+
+<ul>
+<li><strong>api 服务网关</strong></li>
+<li><strong>服务注册与发现</strong></li>
+<li><strong>服务容错</strong></li>
+<li><strong>服务链路追踪</strong></li>
+</ul>
+
+<h2 id="api-服务网关">API 服务网关</h2>
+
+<p><strong>服务网关的作用</strong>：网关就是一个处于应用程序或服务之前的系统，用来管理授权、访问控制和流量限制等。</p>
+
+<p>API 网关的职能主要有：
+<img src="https://zhongyue618.com/images/gateway.jpg" alt="avatar" /></p>
+
+<ul>
+<li><strong>请求接入</strong>：作为所有 API 接口服务请求的接入点，管理所有的接入请求。</li>
+<li><strong>业务聚合</strong>：作为所有后端业务服务的聚合点，所有的业务服务都可以在这里被调用。</li>
+<li><strong>拦截插件</strong>：实现安全、验证、路由、过滤、流控、缓存等策略，进行一些必要的插件去处理。</li>
+<li><strong>统一管理</strong>：提供配置管理工具，对所有 API 服务的调用生命周期和相应的中介策略进行统一管理。</li>
+</ul>
+
+<p>API 网关设计和选型的关注点：
+1. 开发维护简单，节约人力成本和维护成本。应选择成熟的简单可维护的技术体系。
+2. 高性能，节约设备成本，提高系统吞吐能力。要求我们需要针对 API 网关的特点进行一些特定的设计和权衡。</p>
+
+<p>鉴于目前我们网关相关技术栈主要是基于 Nginx，选择了网上开源热度较高的 Kong 和 Nginx 进行比较:</p>
 
 <table>
 <thead>
 <tr>
-<th>字段名</th>
-<th>解释</th>
+<th>功能</th>
+<th>Nginx</th>
+<th>Kong(社区版)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>id</td>
-<td>SELECT 查询的标识符. 每个 SELECT 都会自动分配一个唯一的标识符.</td>
+<td>动态路由</td>
+<td>配置文件中进行配置</td>
+<td>通过 Admin Api 管理配置</td>
 </tr>
 
 <tr>
-<td>select_type</td>
-<td>SELECT 查询的类型</td>
+<td>插件机制</td>
+<td>Lua 插件</td>
+<td>Lua 插件</td>
 </tr>
 
 <tr>
-<td>table</td>
-<td>查询的是哪个表</td>
+<td>认证、限流等</td>
+<td>写 Lua 插件完成对应功能</td>
+<td>有对应的插件可选，但高度定制化还是需要自我写 Lua 实现</td>
 </tr>
 
 <tr>
-<td>type</td>
-<td>类型</td>
+<td>高可用集群</td>
+<td>配合硬件实现负载均衡</td>
+<td>本身支持集群</td>
 </tr>
 
 <tr>
-<td>possible_keys</td>
-<td>此次查询中可能选用的索引</td>
+<td>管理性</td>
+<td>通过服务器内部管理</td>
+<td>通过 RestApi 交互</td>
 </tr>
 
 <tr>
-<td>key</td>
-<td>此次查询中确切使用到的索引.</td>
+<td>性能</td>
+<td>高</td>
+<td>高</td>
 </tr>
 
 <tr>
-<td>ref:</td>
-<td>哪个字段或常数与 key 一起被使用</td>
-</tr>
-
-<tr>
-<td>rows</td>
-<td>显示此查询一共扫描了多少行. 这个是一个估计值.</td>
-</tr>
-
-<tr>
-<td>filtered</td>
-<td>表示此查询条件所过滤的数据的百分比</td>
-</tr>
-
-<tr>
-<td>extra</td>
-<td>额外的信息</td>
-</tr>
-</tbody>
-</table></li>
-
-<li><h4 id="select-type-表示了查询的类型-它的常用取值有">select_type 表示了查询的类型, 它的常用取值有</h4>
-
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>解释</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><strong>SIMPLE</strong></td>
-<td>简单查询，该查询不包含 UNION 或子查询</td>
-</tr>
-
-<tr>
-<td><strong>PRIMARY</strong></td>
-<td>如果查询包含UNION 或子查询，则<strong>最外层的查询</strong>被标识为PRIMARY</td>
-</tr>
-
-<tr>
-<td>UNION</td>
-<td>表示此查询是 UNION 中的第二个或者随后的查询</td>
-</tr>
-
-<tr>
-<td>DEPENDENT</td>
-<td>UNION 满足 UNION 中的第二个或者随后的查询，其次取决于外面的查询</td>
-</tr>
-
-<tr>
-<td><strong>SUBQUERY</strong></td>
-<td>子查询中的第一个select语句(该子查询不在from子句中)</td>
-</tr>
-
-<tr>
-<td>DEPENDENT SUBQUERY</td>
-<td>子查询中的 第一个 select，同时取决于外面的查询</td>
-</tr>
-
-<tr>
-<td><strong>DERIVED</strong></td>
-<td>包含在from子句中子查询(也称为派生表)</td>
-</tr>
-
-<tr>
-<td>UNCACHEABLE SUBQUERY</td>
-<td>满足是子查询中的第一个 select 语句，同时意味着 select 中的某些特性阻止结果被缓存于一个 Item_cache 中</td>
-</tr>
-
-<tr>
-<td>UNCACHEABLE UNION</td>
-<td>满足此查询是 UNION 中的第二个或者随后的查询，同时意味着 select 中的某些特性阻止结果被缓存于一个 Item_cache 中</td>
+<td>日志记录</td>
+<td>灵活记录到磁盘或上报</td>
+<td>灵活记录到磁盘或上报</td>
 </tr>
 </tbody>
 </table>
 
-<p>加粗的最为常见</p></li>
+<h2 id="服务注册与发现">服务注册与发现</h2>
 
-<li><h5 id="table">table</h5>
+<p><strong>服务注册与发现中心的职责</strong>：
+* 管理当前注册到服务注册与发现中心的微服务实例元数据信息，包括服务实例的服务名、IP 地址、端口号、服务描述和服务状态等。
+* 与注册到服务注册与发现中心的微服务实例维持心跳，定期检查注册表中的服务实例是否在线，并剔除无效服务实例信息。
+* 提供服务发现能力，为服务调用方提供服务提供方的服务实例元数据。</p>
 
-<p>该列显示了对应行正在访问哪个表(有别名就显示别名)。</p>
-
-<p>当from子句中有子查询时，table列是 <code>&lt;derivenN&gt;</code>格式，表示当前查询依赖 <code>id=N</code>的查询，于是先执行 <code>id=N</code> 的查询</p></li>
-
-<li><h5 id="type-该列称为关联类型或者访问类型-它指明了mysql决定如何查找表中符合条件的行-同时是我们判断查询是否高效的重要依据-以下为常见取值">type 该列称为关联类型或者访问类型，它指明了MySQL决定如何查找表中符合条件的行，同时是我们判断查询是否高效的重要依据，以下为常见取值：</h5>
+<p>服务注册与发现组件比较，主要是针对 go 语言下的 consul 和 etcd 两个组件</p>
 
 <table>
 <thead>
 <tr>
-<th>值</th>
-<th>解释</th>
+<th>功能</th>
+<th>Consul</th>
+<th>Etcd</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>ALL</td>
-<td><strong>全表扫描</strong>，这个类型是性能最差的查询之一。通常来说，我们的查询不应该出现 ALL 类型，因为这样的查询，在数据量最大的情况下，对数据库的性能是巨大的灾难</td>
+<td>Key/Value 存储</td>
+<td>支持</td>
+<td>支持</td>
 </tr>
 
 <tr>
-<td>index</td>
-<td><strong>全索引扫描</strong>，和 ALL 类型类似，只不过 ALL 类型是全表扫描，而 index 类型是扫描全部的索引，主要优点是避免了排序，但是开销仍然非常大。如果在 Extra 列看到 Using index，说明正在使用覆盖索引，只扫描索引的数据，它比按索引次序全表扫描的开销要少很多</td>
+<td>多数据中心</td>
+<td>支持</td>
+<td>支持</td>
 </tr>
 
 <tr>
-<td>range</td>
-<td><strong>范围扫描</strong>，就是一个有限制的索引扫描，它开始于索引里的某一点，返回匹配这个值域的行。这个类型通常出现在 <code>=、&lt;&gt;、&gt;、&gt;=、&lt;、&lt;=、IS NULL、&lt;=&gt;、BETWEEN、IN()</code> 的操作中，key 列显示使用了哪个索引，当 type 为该值时，则输出的 ref 列为 NULL，并且 key_len 列是此次查询中使用到的索引最长的那个</td>
+<td>一致性协议</td>
+<td>Raft</td>
+<td>Raft</td>
 </tr>
 
 <tr>
-<td>ref</td>
-<td>一种索引访问，也称索引查找，它返回所有匹配某个单个值的行。此类型通常出现在多表的 join 查询, 针对于非唯一或非主键索引, 或者是使用了最左前缀规则索引的查询</td>
+<td>访问协议</td>
+<td>HTTP/DNS</td>
+<td>HTTP/GRPC</td>
 </tr>
 
 <tr>
-<td>eq_ref</td>
-<td>使用这种索引查找，最多只返回一条符合条件的记录。在使用唯一性索引或主键查找时会出现该值，非常高效</td>
-</tr>
-
-<tr>
-<td>const、system</td>
-<td>该表至多有一个匹配行，在查询开始时读取，或者该表是系统表，只有一行匹配。其中 const 用于在和 primary key 或 unique 索引中有固定值比较的情形</td>
-</tr>
-
-<tr>
-<td>NULL</td>
-<td>在执行阶段不需要访问表</td>
+<td>健康检查</td>
+<td>自带健康检查功能</td>
+<td>需要搭配第三方工具实现</td>
 </tr>
 </tbody>
-</table></li>
+</table>
 
-<li><h5 id="possible-keys">possible_keys</h5>
+<p>从服务注册与发现组件的需求来看，选择 Consul 作为服务注册与发现中心能实现一体化的管理和维护，而 Etcd 还需要去熟悉更多的第三方工具来完善整个服务注册与发现。</p>
 
-<p>这一列显示查询<strong>可能</strong>使用哪些索引来查找</p></li>
+<h2 id="服务容错">服务容错</h2>
 
-<li><h5 id="key">key</h5>
+<p><strong>服务雪崩</strong>：服务雪崩是指当调用链的某个环节不可用时，将会导致其上游环节不可用，并最终将这种影响扩大到整个系统中，导致整个系统的不可用。例如：
+<img src="https://zhongyue618.com/images/sentinal.jpg" alt="avatar" /></p>
 
-<p>这一列显示MySQL<strong>实际</strong>决定使用的索引。如果没有选择索引，键是NULL</p></li>
+<p><strong>服务熔断和降级</strong>：当出现以上类似情况，我们需要有个熔断和降级的机制，以保证部分服务可用和整体系统的稳定性，一般熔断机制的实现现在的主流都是通过断路器组件来实现。</p>
 
-<li><h5 id="key-len">key_len</h5>
+<p>断路器的作用和工作原理：</p>
 
-<p>这一列显示了在索引里使用的字节数，当key列的值为 NULL 时，则该列也是 NULL</p></li>
+<p><img src="https://zhongyue618.com/images/service-down.jpg" alt="avatar" /></p>
 
-<li><h5 id="ref">ref</h5>
+<p>当 service-2 恢复正常，断路器关闭，调用链路回复正常
+查阅网上资料，主流使用的断路器组件是：<strong>Hystrix</strong></p>
 
-<p>这一列显示了哪些字段或者常量被用来和key配合从表中查询记录出来</p></li>
+<p>Hystrix 是 Netflix 开源的一个优秀的服务间断路器。它能够在服务提供者出现故障时，隔离服务调用者和服务提供者，防止服务级联失败；同时提供失败回滚逻辑，使系统快速从异常中恢复，实现上图所示的熔断机制</p>
 
-<li><h5 id="rows">rows</h5>
+<p><strong>服务限流</strong></p>
 
-<p>这一列显示了<strong>估计</strong>要找到所需的行而要读取的行数，这个值是个估计值，原则上值越小越好。</p></li>
+<p>限流方案能预防突发的大流量，保护系统不被冲垮，但是其在处理瞬时流量时，大多数时候会拒绝掉系统无法处理的过量流量，服务的处理能力并没有过多改变，但是这可能会导致拒绝掉一些关键业务请求。</p>
 
-<li><h5 id="extra-其他的信息-常见取值如下">extra 其他的信息，常见取值如下</h5>
+<p>通过限流算法让过多的流量命中缓存的数据或者过期的默认数据，保证系统的可用性，限流算法较多，在此不一一列举。</p>
+
+<h2 id="服务链路链路追踪">服务链路链路追踪</h2>
+
+<p><strong>为什么需要服务链路追踪</strong>：
+当前我们技术场景下，一般通过打日志的方式来进行埋点，然后再根据日志系统和性能监控定位及分析问题。但是如果后续服务化之后，采用日志打点的方式，虽然可以排查大部分的问题，但是侵入性非常大，且对于出现的紧急问题，并不能快速进行响应处理。对于排查性能问题，涉及更改的工作量更大，具体到调用的每个服务和服务里面的方法，需要协调各个服务负责人全部一起跟踪和排查，效率很低。</p>
+
+<p><strong>服务链路追踪</strong>：就是记录一次分布式请求的调用链路，并将分布式请求的调用情况集中展示。其中，调用详情包括各个请求的服务实例信息、服务节点的耗时、每个服务节点的请求状态等。</p>
+
+<p><strong>链路追踪的主要功能：</strong>
+* 故障定位——可以看到请求的完整路径，相比离散的日志，更方便定位问题(。
+* 依赖梳理——基于调用关系生成服务依赖图。
+* 性能分析和优化——可以方便的记录统计系统链路上不同处理单元的耗时占用和占比，容量规划与评估。
+* 配合 Logging 和 Metric 强化监控和报警。</p>
+
+<p>链路追踪组件对比，选取了推特的 Zipkin，Uber 的 Jaeger、和 Apache 的 SkyWalking 做比较：</p>
 
 <table>
 <thead>
 <tr>
-<th>值</th>
-<th>解释</th>
+<th>功能</th>
+<th>Zipkin</th>
+<th>Jaeger</th>
+<th>SkyWalking</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td><strong>Using index</strong></td>
-<td>使用覆盖索引，表示查询索引就可查到所需数据，不用扫描表数据文件，往往说明性能不错</td>
+<td>开发语言</td>
+<td>Java</td>
+<td>Go</td>
+<td>Java</td>
 </tr>
 
 <tr>
-<td>Using Where</td>
-<td>在存储引擎检索行后再进行过滤，使用了where从句来限制哪些行将与下一张表匹配或者是返回给用户</td>
+<td>侵入性</td>
+<td>高</td>
+<td>一般</td>
+<td>低</td>
 </tr>
 
 <tr>
-<td>Using temporary</td>
-<td>在查询结果排序时会使用一个临时表，一般出现于排序、分组和多表 join 的情况，查询效率不高，建议优化</td>
+<td>客户端支持语言</td>
+<td>Java、Go、PHP 等</td>
+<td>Java、Go 等</td>
+<td>Java、PHP 等</td>
 </tr>
 
 <tr>
-<td>Using filesort</td>
-<td>对结果使用一个外部索引排序，而不是按索引次序从表里读取行，一般有出现该值，都建议优化去掉，因为这样的查询 CPU 资源消耗大</td>
+<td>UI 丰富度</td>
+<td>一般</td>
+<td>一般</td>
+<td>一般</td>
+</tr>
+
+<tr>
+<td>监控报警</td>
+<td>无，需结合第三方工具</td>
+<td>无，需结合第三方工具</td>
+<td>自带监控报警</td>
+</tr>
+
+<tr>
+<td>存储类型</td>
+<td>ES、Mysql等</td>
+<td>ES、Kafka 等</td>
+<td>ES、Mysql、TSDB</td>
 </tr>
 </tbody>
-</table></li>
-</ol>
+</table>
+
+<p>在现有基础上引入觉得需要考虑的因素有：
+1. 低性能损耗。
+2. 应用级的透明，尽量减少业务的侵入，目标是尽量少改或者不用修改代码。
+3. 扩展性。</p>
               
             </div>
           </div>
@@ -478,7 +507,9 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/mysql/">Mysql</a>
+  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+
+  <a class="tag tag--primary tag--small" href="https://journey-z.github.io/tags/golang/">Golang</a>
 
                   </div>
                 
@@ -491,7 +522,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/" data-tooltip="微服务架构简介">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -499,7 +530,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/" data-tooltip="Laravel 版本升级">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/" data-tooltip="Mysql explain 语句各个字段解释">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -559,7 +590,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/" data-tooltip="微服务架构简介">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -567,7 +598,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/laravel-%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7/" data-tooltip="Laravel 版本升级">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://journey-z.github.io/2020/03/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A/" data-tooltip="Mysql explain 语句各个字段解释">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -693,9 +724,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/journey-z.github.io\/2020\/03\/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A\/';
+          this.page.url = 'https:\/\/journey-z.github.io\/2021\/02\/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B\/';
           
-            this.page.identifier = '\/2020\/03\/mysql-explain-%E8%AF%AD%E5%8F%A5%E5%90%84%E4%B8%AA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A\/'
+            this.page.identifier = '\/2021\/02\/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B\/'
           
         };
         (function() {

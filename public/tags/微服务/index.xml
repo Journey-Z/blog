@@ -6,18 +6,18 @@
     <description>Recent content in 微服务 on Journey&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Feb 2021 10:55:49 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Feb 2021 11:39:25 +0800</lastBuildDate>
     
 	<atom:link href="https://journey-z.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>使用 Hugo 搭建个人博客</title>
-      <link>https://journey-z.github.io/posts/micro-frame/</link>
-      <pubDate>Fri, 05 Feb 2021 10:55:49 +0800</pubDate>
+      <title>微服务架构简介</title>
+      <link>https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sun, 07 Feb 2021 11:39:25 +0800</pubDate>
       
-      <guid>https://journey-z.github.io/posts/micro-frame/</guid>
-      <description>&lt;p&gt;微服务升级&lt;/p&gt;</description>
+      <guid>https://journey-z.github.io/2021/02/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E7%AE%80%E4%BB%8B/</guid>
+      <description>&lt;p&gt;微服务架构调研及核心基础支撑服务比较&amp;hellip;&lt;/p&gt;</description>
     </item>
     
   </channel>
