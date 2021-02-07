@@ -1,7 +1,22 @@
 ---
-title: "微服务架构"
-date: 2021-02-05T16:22:25+08:00
+title: "服务化架构简单调研"
+date: 2021-02-05T14:56:17+08:00
+categories:
+- 微服务
+  tags:
+- 微服务
+- Go
+  keywords:
+- 微服务
+- Go
+  thumbnailImagePosition: left
+  thumbnailImage: img/micro-service
+
 ---
+微服务升级
+<!--more-->
+
+
 # 服务化项目讨论
 ## 上次会议回顾
 
@@ -128,5 +143,6 @@ Hystrix 是 Netflix 开源的一个优秀的服务间断路器。它能够在服
 1. 低性能损耗。
 2. 应用级的透明，尽量减少业务的侵入，目标是尽量少改或者不用修改代码。
 3. 扩展性。
+
 
 
