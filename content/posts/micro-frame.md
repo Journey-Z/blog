@@ -1,16 +1,18 @@
 ---
-title: "服务化架构简单调研"
-date: 2021-02-05T14:56:17+08:00
+title: "使用 Hugo 搭建个人博客"
+date: 2021-02-05T10:55:49+08:00
 categories:
 - 微服务
-  tags:
+- Golang
+tags:
 - 微服务
-- Go
-  keywords:
+- Golang
+keywords:
 - 微服务
-- Go
-  thumbnailImagePosition: left
-  thumbnailImage: img/micro-service
+- Golang
+  
+thumbnailImagePosition: left
+thumbnailImage: img/micro-service
 
 ---
 微服务升级
